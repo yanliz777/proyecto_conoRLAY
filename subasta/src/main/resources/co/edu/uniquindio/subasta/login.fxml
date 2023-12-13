@@ -13,7 +13,7 @@
    <children>
       <Pane layoutX="1.0" layoutY="-4.0" prefHeight="487.0" prefWidth="700.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="483.0" layoutX="1.0" layoutY="3.0" stroke="#c6c0c0" strokeType="INSIDE" width="701.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="483.0" layoutX="1.0" layoutY="3.0" stroke="#c6c0c0" strokeType="INSIDE" width="800.0" />
             <Label layoutX="230.0" layoutY="221.0" text="Email:" />
             <Label layoutX="230.0" layoutY="298.0" text="Password:" />
             <TextField fx:id="txtEmailLogin" layoutX="332.0" layoutY="221.0" />
