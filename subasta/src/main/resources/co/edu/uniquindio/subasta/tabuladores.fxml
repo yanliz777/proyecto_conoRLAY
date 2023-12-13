@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<?import javafx.scene.control.SplitPane?>
+<AnchorPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.viewController.TabuladoresController">
+   <children>
+      <TabPane fx:id="tabPane" prefHeight="480.0" prefWidth="846.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Pujas">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="789.0">
+
+                    <children>
+                        <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="476.0" prefWidth="775.0">
+                            <items>
+                                <fx:include source="pujas.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+
+                </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Administradores">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="789.0">
+
+                      <children>
+                          <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="476.0" prefWidth="775.0">
+                              <items>
+                                  <fx:include source="administradores.fxml" />
+                              </items>
+                          </SplitPane>
+                      </children>
+
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Clientes">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="789.0">
+
+                    <children>
+                        <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="476.0" prefWidth="775.0">
+                            <items>
+                                <fx:include source="clientes.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+
+                </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Vendedores">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="789.0">
+
+                      <children>
+                          <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="476.0" prefWidth="775.0">
+                              <items>
+                                  <fx:include source="vendedores.fxml" />
+                              </items>
+                          </SplitPane>
+                      </children>
+
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Productos">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="789.0">
+
+                      <children>
+                          <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="476.0" prefWidth="775.0">
+                              <items>
+                                  <fx:include source="productos.fxml" />
+                              </items>
+                          </SplitPane>
+                      </children>
+
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Gestionar Anuncios">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="789.0">
+
+                      <children>
+                          <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="476.0" prefWidth="775.0">
+                              <items>
+                                  <fx:include source="anuncios.fxml" />
+                              </items>
+                          </SplitPane>
+                      </children>
+
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
