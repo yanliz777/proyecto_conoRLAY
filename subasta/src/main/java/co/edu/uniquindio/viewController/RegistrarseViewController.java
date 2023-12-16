@@ -1,12 +1,19 @@
 package co.edu.uniquindio.viewController;
 
+import co.edu.uniquindio.subasta.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class RegistrarseController {
+import java.io.IOException;
 
+public class RegistrarseViewController
+{
+    Main ventana = new Main();
+    @FXML
+    private Button btnAtrasRegistro;
     @FXML
     private TextField txtApellido_registro;
 
@@ -34,19 +41,25 @@ public class RegistrarseController {
     @FXML
     private TextField txtTelefono_registro;
 
-    @FXML
-    void dadfe4(ActionEvent event) {
-
-    }
 
     @FXML
-    void c3baba(ActionEvent event) {
-
+    void atras(ActionEvent event) throws IOException
+    {
+        cerrarVentana(btnAtrasRegistro);
+        ventana.volverAinicio();
     }
 
     @FXML
     void registrar(ActionEvent event) {
 
+    }
+
+    public void cerrarVentana(Button btn)
+    {
+        //Stage = escenario
+        //Scene = escena
+        Stage stage = (Stage)btn.getScene().getWindow();
+        stage.close();
     }
 }
 
