@@ -8,15 +8,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="480.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.viewController.controllerLogin">
+<AnchorPane prefHeight="480.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.viewController.LoginViewController">
    <children>
       <Pane layoutX="1.0" layoutY="-4.0" prefHeight="487.0" prefWidth="700.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="483.0" layoutX="1.0" layoutY="3.0" stroke="#c6c0c0" strokeType="INSIDE" width="800.0" />
-            <Label layoutX="230.0" layoutY="221.0" text="Email:" />
+            <Label layoutX="230.0" layoutY="221.0" text="Cedula:" />
             <Label layoutX="230.0" layoutY="298.0" text="Password:" />
-            <TextField fx:id="txtEmailLogin" layoutX="332.0" layoutY="221.0" />
+            <TextField fx:id="txtCedulaLogin" layoutX="332.0" layoutY="221.0" />
             <TextField fx:id="txtPasswordLogin" layoutX="332.0" layoutY="293.0" />
             <Button fx:id="btnLogin" layoutX="332.0" layoutY="350.0" mnemonicParsing="false" onAction="#logear" prefHeight="29.0" prefWidth="162.0" text="Login" />
             <ImageView fitHeight="165.0" fitWidth="208.0" layoutX="298.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
@@ -25,7 +24,7 @@
                </image>
             </ImageView>
             <Label layoutX="231.0" layoutY="421.0" text="Si aun no tienes cuenta" />
-            <Hyperlink fx:id="btnLinkRegistrar" layoutX="404.0" layoutY="417.0" onAction="#registrar" text="Registrate aqui" />
+            <Button fx:id="btnRegistar" layoutX="371.0" layoutY="416.0" mnemonicParsing="false" onAction="#registrar" prefHeight="29.0" prefWidth="116.0" text="Registrar" />
          </children>
       </Pane>
    </children>

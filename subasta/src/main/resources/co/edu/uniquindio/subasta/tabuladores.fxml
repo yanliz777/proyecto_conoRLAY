@@ -6,7 +6,7 @@
 
 
 <?import javafx.scene.control.SplitPane?>
-<AnchorPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.viewController.TabuladoresController">
+<AnchorPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.viewController.TabuladoresViewController">
    <children>
       <TabPane fx:id="tabPane" prefHeight="480.0" prefWidth="846.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>

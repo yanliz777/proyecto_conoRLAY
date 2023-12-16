@@ -1,4 +1,4 @@
 package co.edu.uniquindio.viewController;
 
-public class AnunciosController {
+public class ClienteViewController {
 }
