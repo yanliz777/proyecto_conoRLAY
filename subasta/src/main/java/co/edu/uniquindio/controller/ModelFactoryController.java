@@ -5,7 +5,6 @@ import co.edu.uniquindio.model.Subasta;
 public class ModelFactoryController
 {
     private Subasta subasta = new Subasta();
-
     private static class SingletonHolder
     {
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
@@ -25,8 +24,15 @@ public class ModelFactoryController
         return subasta;
     }
 
-    public boolean iniciarSesion(String cedula,String password)
-    {
-        return getSubasta().iniciarSesion(cedula,password);
+    public boolean iniciarSesionCliente(String cedula, String password) {
+        return getSubasta().iniciarSesionCliente(cedula,password);
+    }
+
+    public boolean iniciarSesionVendedor(String cedula, String password) {
+        return getSubasta().iniciarSesionVendedor(cedula,password);
+    }
+
+    public boolean iniciarSesionAdministrador(String cedula, String password) {
+        return getSubasta().iniciarSesionAdministrador(cedula,password);
     }
 }
