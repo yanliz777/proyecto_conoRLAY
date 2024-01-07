@@ -1,34 +1,65 @@
 package co.edu.uniquindio.model;
 
+import co.edu.uniquindio.enums.TipoUsuario;
+
 public abstract class Persona
 {
-    protected String nommbres,apellidos,contraseña,email,cedula,telefono,direccion;
+    protected String nombre,apellido,contraseña,email,cedula,telefono,direccion;
+    protected TipoUsuario persona;
 
-    public Persona(String nommbres, String apellidos, String contraseña, String email, String cedula)
+    public Persona(String nombre, String apellido, String contraseña, String email
+            , String cedula,String telefono,String direccion,TipoUsuario persona)
     {
-        this.nommbres = nommbres;
-        this.apellidos = apellidos;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.contraseña = contraseña;
         this.email = email;
         this.cedula = cedula;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.persona = persona;
     }
 
     public Persona(){}
 
-    public String getNommbres() {
-        return nommbres;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setNommbres(String nommbres) {
-        this.nommbres = nommbres;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public TipoUsuario getPersona() {
+        return persona;
+    }
+
+    public void setPersona(TipoUsuario persona) {
+        this.persona = persona;
+    }
+
+    public String getNommbre() {
+        return nombre;
+    }
+
+    public void setNommbre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellidos(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getContraseña() {

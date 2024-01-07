@@ -1,20 +1,25 @@
 package co.edu.uniquindio.viewController;
 
 import co.edu.uniquindio.controller.LoginController;
+import co.edu.uniquindio.enums.TipoUsuario;
 import co.edu.uniquindio.subasta.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class LoginViewController
 {
+    /*Se instancian los siguientes objetos para poder trabajar con los métodos que están
+    en estas clases con el operador . "punto"
+    */
+    private final ObservableList<TipoUsuario> tipoUsuarios = FXCollections.observableArrayList();
     Main ventana = new Main();
-    private LoginController  loginController = new LoginController();//se instancia para poder trabajar con los métodos que esta
-    //clase crados con el oprador . "punto"
+    private LoginController  loginController = new LoginController();
     @FXML
     private Button btnRegistar;
 
