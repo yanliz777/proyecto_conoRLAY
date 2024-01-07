@@ -1,0 +1,191 @@
+.root {
+    -fx-body-color : #F5F5F5;
+    -fx-outer-border : #cecece;
+}
+.button:focused, .toggle-button:focused,
+.split-menu-button:focused, .menu-button:focused,
+.number-button:focused,
+.combo-box:focused .text-field, .choice-box:focused, .color-picker:focused, .date-picker:focused .text-field
+{
+    -fx-effect: dropshadow(gaussian, #b4d1f3, 3, 3, 0, 0);
+}
+.combo-box:focused * {
+    -fx-effect: none;
+}
+
+.button,.menu-button,.toggle-button,.split-menu-button {
+    -fx-font-size: 14;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-pref-height: 30;
+    -fx-min-width: 30;
+}
+.button,.menu-button,.split-menu-button,.toggle-button,.number-button {
+    -fx-background-insets: 0, 0, -1, 0;
+}
+
+.split-menu-button > .label {
+    -fx-border-radius: 4 0 0 4;
+    -fx-background-radius: 3 0 0 3;
+}
+
+.split-menu-button > .arrow-button {
+    -fx-border-radius: 0 4 4 0;
+    -fx-background-radius: 0 3 3 0;
+}
+
+.primary .arrow,
+.success .arrow,
+.info .arrow,
+.warning .arrow,
+.danger .arrow {
+    -fx-background-color: transparent, white;
+}
+
+.primary > .label,
+.success > .label,
+.info > .label,
+.warning > .label,
+.danger > .label {
+    -fx-text-fill: white;
+}
+
+/*warning*/
+
+.button.warning,.split-menu-button.warning,.toggle-button.warning,.menu-button.warning,
+.split-menu-button.warning > .label, .split-menu-button.warning > .arrow-button {
+    -fx-background-color: #f0ad4e;
+}
+
+.button.warning,.menu-button.warning,.toggle-button.warning,
+.split-menu-button.warning > .label,.split-menu-button.warning > .arrow-button {
+    -fx-border-color: #eea236;
+    -fx-text-fill: white;
+}
+/*hover state*/
+.button.warning:hover,.menu-button.warning:hover,.toggle-button.warning:hover,
+.split-menu-button.warning > .label:hover, .split-menu-button.warning > .arrow-button:hover {
+    -fx-border-color: #d58512;
+    -fx-background-color: #ec971f;
+}
+/*pressed selected*/
+.button.warning:pressed, .button.warning:selected,
+.menu-button.warning:pressed,.menu-button.warning:selected
+,.toggle-button.warning:pressed,.toggle-button.warning:selected,
+.split-menu-button.warning:pressed > .label, .split-menu-button.warning > .arrow-button:pressed {
+    -fx-background-color: #ec971f;
+    -fx-border-color: #d58512;
+    -fx-effect: innershadow(gaussian, #d58512, 10, 0, 0, 3);
+}
+
+/*danger*/
+
+.button.danger,.split-menu-button.danger,.toggle-button.danger,.menu-button.danger,
+.split-menu-button.danger > .label, .split-menu-button.danger > .arrow-button {
+    -fx-background-color: #d9534f;
+}
+
+.button.danger,.menu-button.danger,.toggle-button.danger,
+.split-menu-button.danger > .label,.split-menu-button.danger > .arrow-button {
+    -fx-border-color: #d43f3a;
+    -fx-text-fill: white;
+}
+/*hover state*/
+.button.danger:hover,.menu-button.danger:hover,.toggle-button.danger:hover,
+.split-menu-button.danger > .label:hover, .split-menu-button.danger > .arrow-button:hover {
+    -fx-border-color: #ac2925;
+    -fx-background-color: #c9302c;
+}
+/*pressed selected*/
+.button.danger:pressed, .button.danger:selected,
+.menu-button.danger:pressed,.menu-button.danger:selected
+,.toggle-button.danger:pressed,.toggle-button.danger:selected,
+.split-menu-button.danger:pressed > .label, .split-menu-button.danger > .arrow-button:pressed {
+    -fx-border-color: #ac2925;
+    -fx-background-color: #c9302c;
+    -fx-effect: innershadow(gaussian, #ac2925, 10, 0, 0, 3);
+}
+
+/*info*/
+
+.button.info,.split-menu-button.info,.toggle-button.info,.menu-button.info,
+.split-menu-button.info > .label, .split-menu-button.info > .arrow-button {
+    -fx-background-color: #5bc0de;
+}
+
+.button.info,.menu-button.info,.toggle-button.info,
+.split-menu-button.info > .label,.split-menu-button.info > .arrow-button {
+    -fx-border-color: #46b8da;
+    -fx-text-fill: white;
+}
+/*hover state*/
+.button.info:hover,.menu-button.info:hover,.toggle-button.info:hover,
+.split-menu-button.info > .label:hover, .split-menu-button.info > .arrow-button:hover {
+    -fx-border-color: #269abc;
+    -fx-background-color: #31b0d5;
+}
+/*pressed selected*/
+.button.info:pressed, .button.info:selected,
+.menu-button.info:pressed,.menu-button.info:selected
+,.toggle-button.info:pressed,.toggle-button.info:selected,
+.split-menu-button.info:pressed > .label, .split-menu-button.info > .arrow-button:pressed {
+    -fx-background-color: #31b0d5;
+    -fx-border-color: #269abc;
+    -fx-effect: innershadow(gaussian, #269abc, 10, 0, 0, 3);
+}
+
+/*primary*/
+
+.button.primary,.split-menu-button.primary,.toggle-button.primary,.menu-button.primary,
+.split-menu-button.primary > .label, .split-menu-button.primary > .arrow-button {
+    -fx-background-color: #337ab7;
+}
+
+.button.primary,.menu-button.primary,.toggle-button.primary,
+.split-menu-button.primary > .label,.split-menu-button.primary > .arrow-button {
+    -fx-border-color: #2e6da4;
+    -fx-text-fill: white;
+}
+/*hover state*/
+.button.primary:hover,.menu-button.primary:hover,.toggle-button.primary:hover,
+.split-menu-button.primary > .label:hover, .split-menu-button.primary > .arrow-button:hover {
+    -fx-border-color: #204d74;
+    -fx-background-color: #286090;
+}
+/*pressed selected*/
+.button.primary:pressed, .button.primary:selected,
+.menu-button.primary:pressed,.menu-button.primary:selected
+,.toggle-button.primary:pressed,.toggle-button.primary:selected,
+.split-menu-button.primary:pressed > .label, .split-menu-button.primary > .arrow-button:pressed {
+    -fx-background-color: #286090;
+    -fx-border-color: #204d74;
+    -fx-effect: innershadow(gaussian, #204d74, 10, 0, 0, 3);
+}
+
+/*success*/
+
+.button.success,.split-menu-button.success,.toggle-button.success,.menu-button.success,
+.split-menu-button.success > .label, .split-menu-button.success > .arrow-button {
+    -fx-background-color: #5cb85c;
+}
+
+.button.success,.menu-button.success,.toggle-button.success,
+.split-menu-button.success > .label,.split-menu-button.success > .arrow-button {
+    -fx-border-color: #4cae4c;
+    -fx-text-fill: white;
+}
+/*hover state*/
+.button.success:hover,.menu-button.success:hover,.toggle-button.success:hover,
+.split-menu-button.success > .label:hover, .split-menu-button.success > .arrow-button:hover {
+    -fx-border-color: #398439;
+    -fx-background-color: #449d44;
+}
+/*pressed selected*/
+.button.success:pressed, .button.success:selected,
+.menu-button.success:pressed,.menu-button.success:selected
+,.toggle-button.success:pressed,.toggle-button.success:selected,
+.split-menu-button.success:pressed > .label, .split-menu-button.success > .arrow-button:pressed {
+    -fx-background-color: #449d44;
+    -fx-border-color: #398439;
+    -fx-effect: innershadow(gaussian, #398439, 10, 0, 0, 3);
+}
