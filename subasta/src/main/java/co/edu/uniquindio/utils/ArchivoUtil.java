@@ -3,6 +3,7 @@ package co.edu.uniquindio.utils;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.FileHandler;
@@ -10,14 +11,25 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class ArchivoUtil {
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+
+
+/**
+ * Esta clase teine metodo estaticos que permite usarlos sin crear instancias de la clase
+ * Lo que se hizo fue crear esta libreria para el manejo de los archivos
+ * @author Admin
+ *
+ */
+public  class ArchivoUtil {
+
     static String fechaSistema = "";
+    static String fechaRespaldo = "";
     /**
      * Este metodo recibe una cadena con el contenido que se quiere guardar en el archivo
      * @param ruta es la ruta o path donde esta ubicado el archivo
      * @throws IOException
      */
-    public void guardarArchivo(String ruta,String contenido, Boolean flagAnexarContenido) throws IOException {
+    public static void guardarArchivo(String ruta,String contenido, Boolean flagAnexarContenido) throws IOException {
 
         FileWriter fw = new FileWriter(ruta,flagAnexarContenido);
         BufferedWriter bfw = new BufferedWriter(fw);
@@ -26,13 +38,14 @@ public class ArchivoUtil {
         fw.close();
     }
 
+
     /**
      * ESte metodo retorna el contendio del archivo ubicado en una ruta,con la lista de cadenas.
      * @param ruta
      * @return
      * @throws IOException
      */
-    public ArrayList<String> leerArchivo(String ruta) throws IOException {
+    public static ArrayList<String> leerArchivo(String ruta) throws IOException {
 
         ArrayList<String>  contenido = new ArrayList<String>();
         FileReader fr=new FileReader(ruta);
@@ -48,8 +61,8 @@ public class ArchivoUtil {
     }
 
 
-    public void guardarRegistroLog(String mensajeLog, int nivel, String accion, String rutaArchivo)
-    {
+    public static void guardarRegistroLog(String mensajeLog, int nivel, String accion, String rutaArchivo) {
+        String log = "";
         Logger LOGGER = Logger.getLogger(accion);
         FileHandler fileHandler =  null;
         cargarFechaSistema();
@@ -89,39 +102,98 @@ public class ArchivoUtil {
         }
     }
 
-    public void cargarFechaSistema() {
+    private static void cargarFechaSistema() {
 
         String diaN = "";
         String mesN = "";
 
+        Calendar cal1 = Calendar.getInstance();
+
+
+        int dia = cal1.get(Calendar.DATE);
+        int mes = cal1.get(Calendar.MONTH) + 1;
+        int año = cal1.get(Calendar.YEAR);
+
+
+        if (dia < 10) {
+            diaN += "0" + dia;
+        } else {
+            diaN += "" + dia;
+        }
+        if (mes < 10) {
+            mesN += "0" + mes;
+        } else {
+            mesN += "" + mes;
+        }
+
+        fechaSistema = año + "-" + mesN + "-" + diaN;
+
+    }
+
+    public static String cargarFechaSistemaFormatoRespaldo() {
+
+        String diaN = "";
+        String mesN = "";
+        String añoN = "";
+        String horaN = "";
+        String minutoN = "";
+        String segundoN = "";
 
         Calendar cal1 = Calendar.getInstance();
 
 
-        int  dia = cal1.get(Calendar.DATE);
-        int mes = cal1.get(Calendar.MONTH)+1;
-        int anio = cal1.get(Calendar.YEAR);
+        int dia = cal1.get(Calendar.DATE);
+        int mes = cal1.get(Calendar.MONTH) + 1;
+        int año = cal1.get(Calendar.YEAR);
+        int hora = cal1.get(Calendar.HOUR_OF_DAY);
+        int minuto = cal1.get(Calendar.MINUTE);
+        int segundo = cal1.get(Calendar.SECOND);
 
 
-        if(dia < 10){
-            diaN+="0"+dia;
+        if (dia < 10) {
+            diaN += "0" + dia;
+        } else {
+            diaN += "" + dia;
         }
-        else{
-            diaN+=""+dia;
+        if (mes < 10) {
+            mesN += "0" + mes;
+        } else {
+            mesN += "" + mes;
         }
-        if(mes < 10){
-            mesN+="0"+mes;
+        if (hora < 10) {
+            horaN += "0" + hora;
+        } else {
+            horaN += "" + hora;
         }
-        else{
-            mesN+=""+mes;
+        if (minuto < 10) {
+            minutoN += "0" + minuto;
+        } else {
+            minutoN += "" + minuto;
+        }
+        if (segundo < 10) {
+            segundoN += "0" + segundo;
+        } else {
+            segundoN += "" + segundo;
         }
 
-        //		fecha_Actual+= a o+"-"+mesN+"-"+ diaN;
-        //		fechaSistema = a o+"-"+mesN+"-"+diaN+"-"+hora+"-"+minuto;
-        fechaSistema = anio+"-"+mesN+"-"+diaN;
-        //		horaFechaSistema = hora+"-"+minuto;
+        return fechaRespaldo = ""+ diaN + mesN + año+""+horaN+""+minutoN+""+segundoN;
+
+
     }
 
+    public static void copiarArchivoRespaldo(String urlArchivo, String urlDestino){
+        File archivo = new File(urlArchivo);
+        File archivoRespaldo = new File(urlDestino);
+
+
+        try{
+            Files.copy(archivo.toPath(), archivoRespaldo.toPath(),REPLACE_EXISTING);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 
 
 
@@ -134,7 +206,8 @@ public class ArchivoUtil {
      * @throws IOException
      */
 
-    public Object cargarRecursoSerializado(String rutaArchivo)throws Exception
+    @SuppressWarnings("unchecked")
+    public static Object cargarRecursoSerializado(String rutaArchivo)throws Exception
     {
         Object aux = null;
 //		Empresa empresa = null;
@@ -155,10 +228,9 @@ public class ArchivoUtil {
     }
 
 
-    public void salvarRecursoSerializado(String rutaArchivo, Object object)	throws Exception {
+    public static void salvarRecursoSerializado(String rutaArchivo, Object object)	throws Exception {
         ObjectOutputStream oos = null;
         try {
-            // Se crea un ObjectOutputStream
             oos = new ObjectOutputStream(new FileOutputStream(rutaArchivo));
             oos.writeObject(object);
         } catch (Exception e) {
@@ -169,10 +241,7 @@ public class ArchivoUtil {
         }
     }
 
-
-
-
-    public Object cargarRecursoSerializadoXML(String rutaArchivo) throws IOException {
+    public static Object cargarRecursoSerializadoXML(String rutaArchivo) throws IOException {
 
         XMLDecoder decodificadorXML;
         Object objetoXML;
@@ -184,7 +253,7 @@ public class ArchivoUtil {
 
     }
 
-    public void salvarRecursoSerializadoXML(String rutaArchivo, Object objeto) throws IOException {
+    public static void salvarRecursoSerializadoXML(String rutaArchivo, Object objeto) throws IOException {
 
         XMLEncoder codificadorXML;
 
@@ -193,4 +262,5 @@ public class ArchivoUtil {
         codificadorXML.close();
 
     }
+
 }

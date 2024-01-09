@@ -1,6 +1,8 @@
 package co.edu.uniquindio.controller;
 
 import co.edu.uniquindio.model.Subasta;
+import co.edu.uniquindio.utils.Persistencia;
+import co.edu.uniquindio.utils.subastaUtil;
 
 public class ModelFactoryController
 {
@@ -17,8 +19,15 @@ public class ModelFactoryController
     }
 
     //constructor:
-    public ModelFactoryController() {}
-
+    public ModelFactoryController() {
+        cargarDatosBase();
+        guardarRecursosXML(subasta);
+        if(subasta == null)
+        {
+            cargarDatosBase();
+            guardarRecursosXML(subasta);
+        }
+    }
     public Subasta getSubasta()
     {
         return subasta;
@@ -26,5 +35,15 @@ public class ModelFactoryController
 
     public boolean iniciarSesion(String cedula, String password) {
         return getSubasta().iniciarSesion(cedula,password);
+    }
+
+    public void cargarDatosBase()
+    {
+        subasta = subastaUtil.InicializarDatos();
+    }
+
+    public void guardarRecursosXML(Subasta subasta)
+    {
+        Persistencia.guardarArchivoXML(subasta);
     }
 }

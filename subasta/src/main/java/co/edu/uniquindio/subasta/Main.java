@@ -62,7 +62,6 @@ public class Main extends Application
         stage2.show();
     }
 
-
     public static void main(String[] args) {
         launch();
     }

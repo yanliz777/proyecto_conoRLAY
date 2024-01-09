@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Subasta
 {
     Administrador administrador;
-    private ArrayList<Vendedor> vendedores;
-    private ArrayList<Cliente> clientes;
+    private ArrayList<Vendedor> vendedores = new ArrayList<>();
+    private ArrayList<Cliente> clientes = new ArrayList<>();
     //constructor:
     public  Subasta(){}
     public ArrayList<Cliente> getClientes() {
@@ -28,6 +28,9 @@ public class Subasta
         else if(validarSesionCliente(getClientes(),cedula,password))
         {
             bandera = true;
+        }
+        else{
+            System.out.println("ERROR!!!!");
         }
        return bandera;
     }

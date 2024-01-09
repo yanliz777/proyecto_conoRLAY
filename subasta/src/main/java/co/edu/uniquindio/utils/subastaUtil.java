@@ -19,7 +19,7 @@ public class subastaUtil {
         vendedor.setTelefono("3104454312");
         vendedor.setTipopersona(TipoUsuario.VENDEDOR);
 
-        subasta.getVendedores().add(vendedor);
+        subasta.getVendedores().add(vendedor);//se agrega el vendedor
 
         Cliente cliente = new Cliente();
         cliente.setNommbre("Yan");
