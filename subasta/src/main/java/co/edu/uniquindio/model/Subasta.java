@@ -18,13 +18,26 @@ public class Subasta
         return vendedores;
     }
 
-    public boolean iniciarSesion(String cedula,String password)
+    public boolean iniciarSesion(String cedula, String password)
     {
         boolean bandera = false;
-        return  bandera;
+        if (validarSesionVendedor(getVendedores(),cedula,password))
+        {
+            bandera = true;
+        }
+        else if(validarSesionCliente(getClientes(),cedula,password))
+        {
+            bandera = true;
+        }
+       return bandera;
     }
 
-    public boolean iniciarSesionCliente(String cedula, String password) {
+    /**
+     *Método que me permite validar los datos de inicio de sección con los
+     * objetos Tipo Cliente
+     */
+    public boolean validarSesionCliente(ArrayList<Cliente> lista,String cedula,String password)
+    {
         boolean bandera = false;
         for (Cliente cliente : getClientes())
         {
@@ -35,12 +48,13 @@ public class Subasta
                 break;
             }
         }
-        return  bandera;
+        return bandera;
     }
 
-    public boolean iniciarSesionVendedor(String cedula, String password) {
+    public boolean validarSesionVendedor(ArrayList<Vendedor> lista,String cedula,String password)
+    {
         boolean bandera = false;
-        for (Vendedor vendedor : getVendedores())
+        for (Vendedor vendedor: getVendedores())
         {
             if (vendedor.getCedula().equals(cedula) &&
                     vendedor.getContraseña().equals(password))
@@ -49,15 +63,6 @@ public class Subasta
                 break;
             }
         }
-        return  bandera;
-    }
-
-    public boolean iniciarSesionAdministrador(String cedula, String password) {
-        boolean bandera = false;
-        if(administrador.getCedula().equals(cedula) &&
-                administrador.getPersona().equals(password)) {
-            bandera = true;
-        }
-        return  bandera;
+        return bandera;
     }
 }
