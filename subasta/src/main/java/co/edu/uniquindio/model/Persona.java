@@ -5,7 +5,7 @@ import co.edu.uniquindio.enums.TipoUsuario;
 public abstract class Persona
 {
     protected String nombre,apellido,contraseña,email,cedula,telefono,direccion;
-    protected TipoUsuario persona;
+    protected TipoUsuario tipopersona;
 
     public Persona(String nombre, String apellido, String contraseña, String email
             , String cedula,String telefono,String direccion,TipoUsuario persona)
@@ -17,7 +17,7 @@ public abstract class Persona
         this.cedula = cedula;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.persona = persona;
+        this.tipopersona = persona;
     }
 
     public Persona(){}
@@ -38,12 +38,12 @@ public abstract class Persona
         this.direccion = direccion;
     }
 
-    public TipoUsuario getPersona() {
-        return persona;
+    public TipoUsuario getTipopersona() {
+        return tipopersona;
     }
 
-    public void setPersona(TipoUsuario persona) {
-        this.persona = persona;
+    public void setTipopersona(TipoUsuario tipopersona) {
+        this.tipopersona = tipopersona;
     }
 
     public String getNommbre() {
