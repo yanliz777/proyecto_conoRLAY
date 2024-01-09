@@ -24,15 +24,7 @@ public class ModelFactoryController
         return subasta;
     }
 
-    public boolean iniciarSesionCliente(String cedula, String password) {
-        return getSubasta().iniciarSesionCliente(cedula,password);
-    }
-
-    public boolean iniciarSesionVendedor(String cedula, String password) {
-        return getSubasta().iniciarSesionVendedor(cedula,password);
-    }
-
-    public boolean iniciarSesionAdministrador(String cedula, String password) {
-        return getSubasta().iniciarSesionAdministrador(cedula,password);
+    public boolean iniciarSesion(String cedula, String password) {
+        return getSubasta().iniciarSesion(cedula,password);
     }
 }
