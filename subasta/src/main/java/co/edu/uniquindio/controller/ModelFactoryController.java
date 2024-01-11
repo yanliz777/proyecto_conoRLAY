@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 public class ModelFactoryController
 {
-    private Subasta subasta = new Subasta();
+    private Persistencia persistencia = new Persistencia();
+    public Subasta subasta = new Subasta();
     private static class SingletonHolder
     {
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
