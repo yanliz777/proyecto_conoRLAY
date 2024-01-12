@@ -1,11 +1,12 @@
 package co.edu.uniquindio.controller;
 
 import co.edu.uniquindio.model.Cliente;
+import co.edu.uniquindio.model.Producto;
 import co.edu.uniquindio.model.Subasta;
 import co.edu.uniquindio.model.Vendedor;
 import co.edu.uniquindio.utils.Persistencia;
-import co.edu.uniquindio.utils.subastaUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ModelFactoryController
@@ -25,12 +26,29 @@ public class ModelFactoryController
 
     //constructor:
     public ModelFactoryController() {
-        cargarDatosBase();
-        guardarRecursosXML(subasta);
-        if(subasta == null)
-        {
-            cargarDatosBase();
-            guardarRecursosXML(subasta);
+        cargarDatosDesdeArchivos();
+    }
+
+    public void cargarDatosDesdeArchivos() {
+        this.subasta = new Subasta();
+        try {
+            ArrayList<Vendedor> vendedores;
+            ArrayList<Cliente> compradores;
+            /*ArrayList<Producto> productos;
+            ArrayList<Compra>compras;*/
+
+            vendedores = persistencia.leerVendedor();
+            compradores = persistencia.leerClientes();
+            /*productos = persistencia.leerProductos();
+            compras = persistencia.leerCompra();*/
+
+            getSubasta().getVendedores().addAll(vendedores);
+            getSubasta().getClientes().addAll(compradores);
+            /*getSubasta().getProductos().addAll(productos);
+            getSubasta().getListaCompras().addAll(compras);*/
+
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
     public Subasta getSubasta()
@@ -46,11 +64,23 @@ public class ModelFactoryController
         boolean bandera = false;
         if (validarSesionVendedor(subasta.getVendedores(),cedula,password))
         {
-            bandera = true;
+            try {
+                bandera = true;
+                persistencia.guardarVendedor(getSubasta().getVendedores());
+            }
+            catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         else if(validarSesionCliente(subasta.getClientes(),cedula,password))
         {
-            bandera = true;
+            try {
+                bandera = true;
+                persistencia.guardarClientes(getSubasta().getClientes());
+            }
+            catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         else{
             System.out.println("ERROR!!!!");
@@ -91,15 +121,5 @@ public class ModelFactoryController
             }
         }
         return bandera;
-    }
-
-    public void cargarDatosBase()
-    {
-        subasta = subastaUtil.InicializarDatos();
-    }
-
-    public void guardarRecursosXML(Subasta subasta)
-    {
-        Persistencia.guardarArchivoXML(subasta);
     }
 }

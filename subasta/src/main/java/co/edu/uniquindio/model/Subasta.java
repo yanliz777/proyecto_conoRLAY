@@ -7,10 +7,14 @@ public class Subasta
     Administrador administrador;
     private ArrayList<Vendedor> vendedores = new ArrayList<>();
     private ArrayList<Cliente> clientes = new ArrayList<>();
+    private ArrayList<Producto> productos = new ArrayList<>();
     //constructor:
     public  Subasta(){}
     public ArrayList<Cliente> getClientes() {
         return clientes;
+    }
+    public ArrayList<Producto> getProductos() {
+        return productos;
     }
 
     public ArrayList<Vendedor> getVendedores()
