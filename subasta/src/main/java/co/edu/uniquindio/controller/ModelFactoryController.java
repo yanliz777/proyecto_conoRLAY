@@ -20,8 +20,10 @@ public class ModelFactoryController
 
     //constructor:
     public ModelFactoryController() {
+
         cargarDatosBase();
         guardarRecursosXML(subasta);
+
         if(subasta == null)
         {
             cargarDatosBase();
