@@ -2,6 +2,7 @@ module co.edu.uniquindio.subasta//maneja toda la parte gráfica del proyecto
 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.mapstruct;
     requires java.desktop;
     requires java.logging;
 
@@ -10,5 +11,12 @@ module co.edu.uniquindio.subasta//maneja toda la parte gráfica del proyecto
     exports co.edu.uniquindio.subasta;
     opens co.edu.uniquindio.viewController to javafx.fxml;
     exports co.edu.uniquindio.viewController;
+    opens co.edu.uniquindio.mapping.dto to javafx.fxml;
+    exports co.edu.uniquindio.mapping.dto;
+    opens co.edu.uniquindio.mapping.mappers to javafx.fxml;
+    exports co.edu.uniquindio.mapping.mappers;
+    opens co.edu.uniquindio.enums to javafx.fxml;
+    exports co.edu.uniquindio.enums;
+
 
 }
