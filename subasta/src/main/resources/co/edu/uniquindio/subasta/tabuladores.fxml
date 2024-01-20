@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<?import javafx.scene.control.SplitPane?>
-<AnchorPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.viewController.TabuladoresViewController">
+<AnchorPane prefHeight="480.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.viewController.TabuladoresViewController">
    <children>
-      <TabPane fx:id="tabPane" prefHeight="480.0" prefWidth="846.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPane" prefHeight="480.0" prefWidth="616.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Pujas">
             <content>
@@ -72,10 +71,10 @@
             </Tab>
             <Tab text="Productos">
               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="789.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="451.0" prefWidth="604.0">
 
                       <children>
-                          <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="476.0" prefWidth="775.0">
+                          <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="439.0" prefWidth="603.0">
                               <items>
                                   <fx:include source="productos.fxml" />
                               </items>
