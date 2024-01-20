@@ -1,8 +1,10 @@
 package co.edu.uniquindio.viewController;
 
 import co.edu.uniquindio.controller.ProductoController;
+import co.edu.uniquindio.enums.TipoProducto;
 import co.edu.uniquindio.mapping.dto.ProductoDto;
 import co.edu.uniquindio.mapping.dto.VendedorDto;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -98,6 +100,36 @@ public class ProductosViewController {
     @FXML
     void initialize(){
         productoControllerService = new ProductoController();
+        initView();
+    }
+
+    private void initView(){
+        initDataBinding();
+        mostrarTipoProducto();
+        //listenerSelection();
+    }
+
+    private void initDataBinding(){
+        colCodigo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().codigoIdentificador()));
+        colNombreProducto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
+        colVendedor.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().vendedor()));
+        colTipoProducto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().tipoProducto()));
+    }
+
+    private void listenerSelection() {
+        tblProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            productoDtoSeleccionado = newSelection;
+
+            //mostrarInformacionProducto(productoDtoSeleccionado);
+        });
+    }
+
+    private void mostrarTipoProducto(){
+        listaTipoProducto.add(String.valueOf(TipoProducto.DEPORTES));
+        listaTipoProducto.add(String.valueOf(TipoProducto.HOGAR));
+        listaTipoProducto.add(String.valueOf(TipoProducto.TECNOLOGIA));
+        listaTipoProducto.add(String.valueOf(TipoProducto.VEHICULOS));
+        cmbTipoProducto.setItems(listaTipoProducto);
     }
 
 }

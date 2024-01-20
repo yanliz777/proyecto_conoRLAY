@@ -13,6 +13,10 @@ module co.edu.uniquindio.subasta//maneja toda la parte gráfica del proyecto
     exports co.edu.uniquindio.viewController;
     opens co.edu.uniquindio.mapping.dto to javafx.fxml;
     exports co.edu.uniquindio.mapping.dto;
+    opens co.edu.uniquindio.mapping.mappers to javafx.fxml;
+    exports co.edu.uniquindio.mapping.mappers;
+    opens co.edu.uniquindio.enums to javafx.fxml;
+    exports co.edu.uniquindio.enums;
 
 
 }
