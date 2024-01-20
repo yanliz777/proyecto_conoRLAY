@@ -1,5 +1,6 @@
 package co.edu.uniquindio.utils;
 
+import co.edu.uniquindio.model.Administrador;
 import co.edu.uniquindio.model.Cliente;
 import co.edu.uniquindio.model.Producto;
 import co.edu.uniquindio.model.Vendedor;
@@ -17,8 +18,9 @@ public class Persistencia {
     public static final String rutaCompras = "src/main/resources/co/edu/uniquindio/subasta/archivos/Compras.txt";
 
     public static final String rutaProductos = "src/main/resources/co/edu/uniquindio/subasta/archivos/Productos.txt";
-
     public static final String rutaClientes = "src/main/resources/co/edu/uniquindio/subasta/archivos/Clientes.txt";
+
+    public static final String rutaAdministradores = "src/main/resources/co/edu/uniquindio/subasta/archivos/Administradores.txt";
 
     //-----------------------------------FRANCO---------------------------------------------------------------
 
@@ -98,6 +100,40 @@ public class Persistencia {
             clientes.add(cliente);
         }
         return clientes;
+    }
+
+    public void guardarAdministrador(ArrayList<Administrador> administradores) throws IOException {
+        StringBuilder datosAdministrador  =new StringBuilder();
+
+        for (Administrador administrador: administradores) {
+
+            datosAdministrador.append(administrador.getNommbre()).append("!!").
+                    append(administrador.getApellido()).append("!!").
+                    append(administrador.getDireccion()).append("!!").
+                    append(administrador.getCedula()).append("!!").
+                    append(administrador.getEmail()).append("!!").
+                    append(administrador.getContraseña()).append("!!").
+                    append(administrador.getTelefono()).append("\n");
+        }
+        archivoUtil.guardarArchivo(rutaAdministradores, datosAdministrador.toString(), false );
+    }
+
+    public ArrayList<Administrador> leerAdministradores()throws IOException{
+        ArrayList<Administrador> administradors = new ArrayList<>();
+        ArrayList<String>datos = archivoUtil.leerArchivo(rutaAdministradores);
+        String cadena;
+        for (String t: datos) {
+            cadena = t;
+            Administrador administrador = new Administrador();
+            administrador.setNommbre(cadena.split("!!")[0]);
+            administrador.setApellidos(cadena.split("!!")[1]);
+            administrador.setDireccion(cadena.split("!!")[2]);
+            administrador.setCedula(cadena.split("!!")[3]);
+            administrador.setEmail(cadena.split("!!")[4]);
+            administrador.setContraseña(cadena.split("!!")[5]);
+            administradors.add(administrador);
+        }
+        return administradors;
     }
 }
 
