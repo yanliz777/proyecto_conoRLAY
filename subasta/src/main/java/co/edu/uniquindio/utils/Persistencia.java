@@ -12,21 +12,17 @@ public class Persistencia {
 
     //----------------------------------Orlay----------------------------------------------------------------
 
-    /*public static final String rutaVendedor = "C:\\Users\\ivanr\\Documents\\Proyecto-tienda\\src\\main\\" +
-            "java\\co\\edu\\uniquindio\\tienda\\archivos\\Vendedores.txt";
+    public static final String rutaVendedor = "src/main/resources/co/edu/uniquindio/subasta/archivos/Vendedores.txt";
 
-    public static final String rutaCompras = "C:\\Users\\ivanr\\Documents\\Proyecto-tienda\\src\\main\\java" +
-            "\\co\\edu\\uniquindio\\tienda\\archivos\\Compras.txt";
+    public static final String rutaCompras = "src/main/resources/co/edu/uniquindio/subasta/archivos/Compras.txt";
 
-    public static final String rutaProductos = "C:\\Users\\ivanr\\Documents\\Proyecto-tienda\\src\\main\\" +
-            "java\\co\\edu\\uniquindio\\tienda\\archivos\\Productos.txt";
+    public static final String rutaProductos = "src/main/resources/co/edu/uniquindio/subasta/archivos/Productos.txt";
 
-    public static final String rutaCompradores = "C:\\Users\\ivanr\\Documents\\Proyecto-tienda\\src\\main\\" +
-            "java\\co\\edu\\uniquindio\\tienda\\archivos\\Clientes.txt";
-*/
+    public static final String rutaClientes = "src/main/resources/co/edu/uniquindio/subasta/archivos/Clientes.txt";
+
     //-----------------------------------FRANCO---------------------------------------------------------------
 
-    public static final String rutaVendedor = "C:\\Users\\YAN FRANCO\\OneDrive\\Documentos" +
+    /*public static final String rutaVendedor = "C:\\Users\\YAN FRANCO\\OneDrive\\Documentos" +
             "\\Trabajos_con_orlay\\subasta\\src\\main\\java\\co\\edu\\uniquindio\\Archivos\\Vendedores.txt";
 
     public static final String rutaCompras = "C:\\Users\\YAN FRANCO\\OneDrive\\Documentos" +
@@ -36,7 +32,7 @@ public class Persistencia {
             "\\Trabajos_con_orlay\\subasta\\src\\main\\java\\co\\edu\\uniquindio\\Archivos\\Productos.txt";
 
     public static final String rutaClientes = "C:\\Users\\YAN FRANCO\\OneDrive\\Documentos" +
-            "\\Trabajos_con_orlay\\subasta\\src\\main\\java\\co\\edu\\uniquindio\\Archivos\\Clientes.txt";
+            "\\Trabajos_con_orlay\\subasta\\src\\main\\java\\co\\edu\\uniquindio\\Archivos\\Clientes.txt";*/
 
     public void guardarVendedor(ArrayList<Vendedor>listaVendedores) throws IOException {
         StringBuilder datos  = new StringBuilder();
