@@ -7,10 +7,14 @@ public class Subasta
     Administrador administrador;
     private ArrayList<Vendedor> vendedores = new ArrayList<>();
     private ArrayList<Cliente> clientes = new ArrayList<>();
+    private ArrayList<Producto> productos = new ArrayList<>();
     //constructor:
     public  Subasta(){}
     public ArrayList<Cliente> getClientes() {
         return clientes;
+    }
+    public ArrayList<Producto> getProductos() {
+        return productos;
     }
 
     public ArrayList<Vendedor> getVendedores()
@@ -18,7 +22,7 @@ public class Subasta
         return vendedores;
     }
 
-    public boolean iniciarSesion(String cedula, String password)
+   /* public boolean iniciarSesion(String cedula, String password)
     {
         boolean bandera = false;
         if (validarSesionVendedor(getVendedores(),cedula,password))
@@ -39,7 +43,7 @@ public class Subasta
      *Método que me permite validar los datos de inicio de sección con los
      * objetos Tipo Cliente
      */
-    public boolean validarSesionCliente(ArrayList<Cliente> lista,String cedula,String password)
+   /* public boolean validarSesionCliente(ArrayList<Cliente> lista,String cedula,String password)
     {
         boolean bandera = false;
         for (Cliente cliente : getClientes())
@@ -67,5 +71,5 @@ public class Subasta
             }
         }
         return bandera;
-    }
+    }*/
 }
