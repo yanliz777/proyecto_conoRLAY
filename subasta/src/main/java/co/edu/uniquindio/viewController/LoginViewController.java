@@ -2,6 +2,9 @@ package co.edu.uniquindio.viewController;
 
 import co.edu.uniquindio.controller.LoginController;
 import co.edu.uniquindio.enums.TipoUsuario;
+import co.edu.uniquindio.model.Cliente;
+import co.edu.uniquindio.model.Persona;
+import co.edu.uniquindio.model.Vendedor;
 import co.edu.uniquindio.subasta.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class LoginViewController
 {
@@ -39,6 +43,10 @@ public class LoginViewController
 
     }
 
+    /**
+     *Métod que me permite registrar un usuario que no está registrado en mi
+     * sistema
+     */
     @FXML
     void registrar(ActionEvent event) throws IOException
     {
