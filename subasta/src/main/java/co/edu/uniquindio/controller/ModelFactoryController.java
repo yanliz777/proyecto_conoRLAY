@@ -1,9 +1,6 @@
 package co.edu.uniquindio.controller;
 
-import co.edu.uniquindio.model.Cliente;
-import co.edu.uniquindio.model.Producto;
-import co.edu.uniquindio.model.Subasta;
-import co.edu.uniquindio.model.Vendedor;
+import co.edu.uniquindio.model.*;
 import co.edu.uniquindio.utils.Persistencia;
 
 import java.io.IOException;
@@ -13,6 +10,49 @@ public class ModelFactoryController
 {
     private Persistencia persistencia = new Persistencia();
     public Subasta subasta = new Subasta();
+
+    public Vendedor registrarVendedor(Vendedor vendedor) {
+        Vendedor vendedor1 = null;
+        try
+        {
+            vendedor1 = getSubasta().registrarVendedor(vendedor);
+            persistencia.guardarVendedor(getSubasta().getVendedores());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return vendedor1;
+    }
+
+    public Cliente registrarCliente(Cliente cliente) {
+        Cliente cliente1 = null;
+        try
+        {
+            cliente1 = getSubasta().registrarCliente(cliente);
+            persistencia.guardarClientes(getSubasta().getClientes());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return cliente1;
+    }
+
+    public Administrador registrarAdministrador(Administrador administrador) {
+        Administrador administrador1 = null;
+        try
+        {
+            administrador1 = getSubasta().registrarAdministrador(administrador);
+            persistencia.guardarAdministrador(getSubasta().getAdministradores());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return administrador1;
+    }
+
     private static class SingletonHolder
     {
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
