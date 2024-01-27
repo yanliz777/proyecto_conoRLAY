@@ -4,20 +4,19 @@ import co.edu.uniquindio.enums.TipoUsuario;
 
 public abstract class Persona
 {
-    protected String nombre,apellido,contraseña,email,cedula,telefono,direccion;
-    protected TipoUsuario tipopersona;
+    protected String nombre,apellido,password,email,cedula,telefono,direccion,tipopersona;
 
-    public Persona(String nombre, String apellido, String contraseña, String email
-            , String cedula,String telefono,String direccion,TipoUsuario persona)
+    public Persona(String nombre, String apellido, String password, String email
+            , String cedula,String telefono,String direccion,String tipopersona)
     {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.contraseña = contraseña;
+        this.password = password;
         this.email = email;
         this.cedula = cedula;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.tipopersona = persona;
+        this.tipopersona = tipopersona;
     }
 
     public Persona(){}
@@ -38,19 +37,19 @@ public abstract class Persona
         this.direccion = direccion;
     }
 
-    public TipoUsuario getTipopersona() {
+    public String getTipopersona() {
         return tipopersona;
     }
 
-    public void setTipopersona(TipoUsuario tipopersona) {
+    public void setTipopersona(String tipopersona) {
         this.tipopersona = tipopersona;
     }
 
-    public String getNommbre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNommbre(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
@@ -62,12 +61,12 @@ public abstract class Persona
         this.apellido = apellido;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {

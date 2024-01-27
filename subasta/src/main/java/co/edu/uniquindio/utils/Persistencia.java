@@ -39,13 +39,14 @@ public class Persistencia {
     public void guardarVendedor(ArrayList<Vendedor>listaVendedores) throws IOException {
         StringBuilder datos  = new StringBuilder();
         for (Vendedor v: listaVendedores) {
-            datos.append(v.getNommbre()).append("!!").
+            datos.append(v.getNombre()).append("!!").
                     append(v.getApellido()).append("!!").
-                    append(v.getDireccion()).append("!!").
-                    append(v.getCedula()).append("!!").
+                    append(v.getPassword()).append("!!").
                     append(v.getEmail()).append("!!").
-                    append(v.getContraseña()).append("!!").
-                    append(v.getTelefono()).append("\n");
+                    append(v.getCedula()).append("!!").
+                    append(v.getTelefono()).append("!!").
+                    append(v.getDireccion()).append("!!").
+                    append(v.getTipopersona()).append("\n");
         }
         archivoUtil.guardarArchivo(rutaVendedor, datos.toString(), false );
     }
@@ -56,12 +57,17 @@ public class Persistencia {
         for (String t: datos) {
             cadena = t;
             Vendedor vendedor = new Vendedor();
-            vendedor.setNommbre(cadena.split("!!")[0]);
+            vendedor.setNombre(cadena.split("!!")[0]);
             vendedor.setApellidos(cadena.split("!!")[1]);
-            vendedor.setDireccion(cadena.split("!!")[2]);
-            vendedor.setCedula(cadena.split("!!")[3]);
-            vendedor.setEmail(cadena.split("!!")[4]);
-            vendedor.setContraseña(cadena.split("!!")[5]);
+            vendedor.setPassword(cadena.split("!!")[2]);
+            vendedor.setEmail(cadena.split("!!")[3]);
+            vendedor.setCedula(cadena.split("!!")[4]);
+            vendedor.setTelefono(cadena.split("!!")[5]);
+            vendedor.setDireccion(cadena.split("!!")[6]);
+            vendedor.setTipopersona(cadena.split("!!")[7]);
+
+
+
             vendedores.add(vendedor);
         }
         return vendedores;
@@ -73,12 +79,12 @@ public class Persistencia {
 
         for (Cliente c: listaClientes) {
 
-            datosCliente.append(c.getNommbre()).append("!!").
+            datosCliente.append(c.getNombre()).append("!!").
                     append(c.getApellido()).append("!!").
                     append(c.getDireccion()).append("!!").
                     append(c.getCedula()).append("!!").
                     append(c.getEmail()).append("!!").
-                    append(c.getContraseña()).append("!!").
+                    append(c.getPassword()).append("!!").
                     append(c.getTelefono()).append("\n");
         }
         archivoUtil.guardarArchivo(rutaClientes, datosCliente.toString(), false );
@@ -91,12 +97,12 @@ public class Persistencia {
         for (String t: datos) {
             cadena = t;
             Cliente cliente = new Cliente();
-            cliente.setNommbre(cadena.split("!!")[0]);
+            cliente.setNombre(cadena.split("!!")[0]);
             cliente.setApellidos(cadena.split("!!")[1]);
             cliente.setDireccion(cadena.split("!!")[2]);
             cliente.setCedula(cadena.split("!!")[3]);
             cliente.setEmail(cadena.split("!!")[4]);
-            cliente.setContraseña(cadena.split("!!")[5]);
+            cliente.setPassword(cadena.split("!!")[5]);
             clientes.add(cliente);
         }
         return clientes;
@@ -107,12 +113,12 @@ public class Persistencia {
 
         for (Administrador administrador: administradores) {
 
-            datosAdministrador.append(administrador.getNommbre()).append("!!").
+            datosAdministrador.append(administrador.getNombre()).append("!!").
                     append(administrador.getApellido()).append("!!").
                     append(administrador.getDireccion()).append("!!").
                     append(administrador.getCedula()).append("!!").
                     append(administrador.getEmail()).append("!!").
-                    append(administrador.getContraseña()).append("!!").
+                    append(administrador.getPassword()).append("!!").
                     append(administrador.getTelefono()).append("\n");
         }
         archivoUtil.guardarArchivo(rutaAdministradores, datosAdministrador.toString(), false );
@@ -125,12 +131,12 @@ public class Persistencia {
         for (String t: datos) {
             cadena = t;
             Administrador administrador = new Administrador();
-            administrador.setNommbre(cadena.split("!!")[0]);
+            administrador.setNombre(cadena.split("!!")[0]);
             administrador.setApellidos(cadena.split("!!")[1]);
             administrador.setDireccion(cadena.split("!!")[2]);
             administrador.setCedula(cadena.split("!!")[3]);
             administrador.setEmail(cadena.split("!!")[4]);
-            administrador.setContraseña(cadena.split("!!")[5]);
+            administrador.setPassword(cadena.split("!!")[5]);
             administradors.add(administrador);
         }
         return administradors;

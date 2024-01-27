@@ -31,11 +31,11 @@ public class Subasta
     {
         Vendedor vendedor1 = new Vendedor();//nuevo
 
-        vendedor1.setNommbre(vendedor.getNommbre());
+        vendedor1.setNombre(vendedor.getNombre());
         vendedor1.setApellidos(vendedor.getApellido());
         vendedor1.setCedula(vendedor.getCedula());
         vendedor1.setEmail(vendedor.getEmail());
-        vendedor1.setContraseña(vendedor.getContraseña());
+        vendedor1.setPassword(vendedor.getPassword());
         vendedor1.setDireccion(vendedor.getDireccion());
         vendedor1.setTelefono(vendedor.getTelefono());
         vendedor1.setTipopersona(vendedor.getTipopersona());
@@ -48,11 +48,11 @@ public class Subasta
     public Cliente registrarCliente(Cliente cliente) {
         Cliente cliente1 = new Cliente();//nuevo
 
-        cliente1.setNommbre(cliente.getNommbre());
+        cliente1.setNombre(cliente.getNombre());
         cliente1.setApellidos(cliente.getApellido());
         cliente1.setCedula(cliente.getCedula());
         cliente1.setEmail(cliente.getEmail());
-        cliente1.setContraseña(cliente.getContraseña());
+        cliente1.setPassword(cliente.getPassword());
         cliente1.setDireccion(cliente.getDireccion());
         cliente1.setTelefono(cliente.getTelefono());
         cliente1.setTipopersona(cliente.getTipopersona());
@@ -65,11 +65,11 @@ public class Subasta
     public Administrador registrarAdministrador(Administrador administrador) {
         Administrador administrador1 = new Administrador();//nuevo
 
-        administrador1.setNommbre(administrador.getNommbre());
+        administrador1.setNombre(administrador.getNombre());
         administrador1.setApellidos(administrador.getApellido());
         administrador1.setCedula(administrador.getCedula());
         administrador1.setEmail(administrador.getEmail());
-        administrador1.setContraseña(administrador.getContraseña());
+        administrador1.setPassword(administrador.getPassword());
         administrador1.setDireccion(administrador.getDireccion());
         administrador1.setTelefono(administrador.getTelefono());
         administrador1.setTipopersona(administrador.getTipopersona());

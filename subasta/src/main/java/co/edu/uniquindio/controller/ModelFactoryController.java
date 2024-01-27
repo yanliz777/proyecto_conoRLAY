@@ -1,15 +1,19 @@
 package co.edu.uniquindio.controller;
 
+import co.edu.uniquindio.mapping.dto.VendedorDto;
+import co.edu.uniquindio.mapping.mappers.SubastaMapper;
 import co.edu.uniquindio.model.*;
 import co.edu.uniquindio.utils.Persistencia;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ModelFactoryController
 {
     private Persistencia persistencia = new Persistencia();
     public Subasta subasta = new Subasta();
+    SubastaMapper mapper = SubastaMapper.INSTANCE;
 
     public Vendedor registrarVendedor(Vendedor vendedor) {
         Vendedor vendedor1 = null;
@@ -74,18 +78,12 @@ public class ModelFactoryController
         try {
             ArrayList<Vendedor> vendedores;
             ArrayList<Cliente> compradores;
-            /*ArrayList<Producto> productos;
-            ArrayList<Compra>compras;*/
 
             vendedores = persistencia.leerVendedor();
             compradores = persistencia.leerClientes();
-            /*productos = persistencia.leerProductos();
-            compras = persistencia.leerCompra();*/
 
             getSubasta().getVendedores().addAll(vendedores);
             getSubasta().getClientes().addAll(compradores);
-            /*getSubasta().getProductos().addAll(productos);
-            getSubasta().getListaCompras().addAll(compras);*/
 
         }catch (IOException e){
             e.printStackTrace();
@@ -139,7 +137,7 @@ public class ModelFactoryController
         for (Cliente cliente : subasta.getClientes())
         {
             if (cliente.getCedula().equals(cedula) &&
-                    cliente.getContraseña().equals(password))
+                    cliente.getPassword().equals(password))
             {
                 bandera = true;
                 break;
@@ -154,12 +152,16 @@ public class ModelFactoryController
         for (Vendedor vendedor: subasta.getVendedores())
         {
             if (vendedor.getCedula().equals(cedula) &&
-                    vendedor.getContraseña().equals(password))
+                    vendedor.getPassword().equals(password))
             {
                 bandera = true;
                 break;
             }
         }
         return bandera;
+    }
+
+    public List<VendedorDto> obtenerVendedores() {
+        return  mapper.getVendedorDto(subasta.getVendedores());
     }
 }

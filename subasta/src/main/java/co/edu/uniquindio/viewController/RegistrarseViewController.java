@@ -85,18 +85,18 @@ public class RegistrarseViewController
         String telefono = txtTelefono_registro.getText();
        // LocalDate fechaCaducidad = txtFechaNaciemiento_registro.getValue();
         String dirección = txtDireccion_registro.getText();
-        TipoUsuario tipo = cmbTipoUsuario_registro.getSelectionModel().getSelectedItem();
+        String tipopersona = String.valueOf(cmbTipoUsuario_registro.getSelectionModel().getSelectedItem());
 
-        if(TipoUsuario.VENDEDOR.equals(tipo)) {
+        if(TipoUsuario.VENDEDOR.equals(tipopersona)) {
             Vendedor vendedor = new Vendedor();
-            vendedor.setNommbre(nombre);
+            vendedor.setNombre(nombre);
             vendedor.setApellidos(apellido);
             vendedor.setEmail(email);
-            vendedor.setContraseña(password);
+            vendedor.setPassword(password);
             vendedor.setCedula(cedula);
             vendedor.setTelefono(telefono);
             vendedor.setDireccion(dirección);
-            vendedor.setTipopersona(tipo);
+            vendedor.setTipopersona(tipopersona);
             Vendedor vendedor2 = controladorSecundario.registrarUsuario(vendedor);
             System.out.println("guardado vendededor");
             try {
@@ -105,16 +105,16 @@ public class RegistrarseViewController
                 throw new RuntimeException(e);
             }
         }
-        else if (TipoUsuario.CLIENTE.equals(tipo)) {
+        else if (TipoUsuario.CLIENTE.equals(tipopersona)) {
             Cliente cliente = new Cliente();
-            cliente.setNommbre(nombre);
+            cliente.setNombre(nombre);
             cliente.setApellidos(apellido);
             cliente.setEmail(email);
-            cliente.setContraseña(password);
+            cliente.setPassword(password);
             cliente.setCedula(cedula);
             cliente.setTelefono(telefono);
             cliente.setDireccion(dirección);
-            cliente.setTipopersona(tipo);
+            cliente.setTipopersona(tipopersona);
             Cliente cliente2 = controladorSecundario.registrarUsuario(cliente);
             System.out.println("guardado cliente");
             try {
@@ -123,16 +123,16 @@ public class RegistrarseViewController
                 throw new RuntimeException(e);
             }
         }
-        else if (TipoUsuario.ADMINISTRADOR.equals(tipo)) {
+        else if (TipoUsuario.ADMINISTRADOR.equals(tipopersona)) {
             Administrador administrador = new Administrador();
-            administrador.setNommbre(nombre);
+            administrador.setNombre(nombre);
             administrador.setApellidos(apellido);
             administrador.setEmail(email);
-            administrador.setContraseña(password);
+            administrador.setPassword(password);
             administrador.setCedula(cedula);
             administrador.setTelefono(telefono);
             administrador.setDireccion(dirección);
-            administrador.setTipopersona(tipo);
+            administrador.setTipopersona(tipopersona);
             Administrador administrador2 = controladorSecundario.registrarUsuario(administrador);;
             System.out.println("guardado administrador");
             try {

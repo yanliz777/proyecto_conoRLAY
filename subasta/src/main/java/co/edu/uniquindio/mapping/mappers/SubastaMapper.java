@@ -7,10 +7,12 @@ import co.edu.uniquindio.model.Producto;
 import co.edu.uniquindio.model.Vendedor;
 import org.mapstruct.IterableMapping;
 import org.mapstruct.Named;
+import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
+@Mapper
 public interface SubastaMapper {
 
     SubastaMapper INSTANCE = Mappers.getMapper(SubastaMapper.class);
@@ -27,7 +29,7 @@ public interface SubastaMapper {
     @Named("vendedorToVendedorDto")
     VendedorDto vendedorToVendedorDto(Vendedor vendedor);
 
-    //@Mappiing(target ="vendedor", source="vendedorToVendedorDto")
+    //@Mapping(target ="vendedor", source="vendedorToVendedorDto")
     Vendedor vendedorDtoToVendedor(VendedorDto vendedorDto);
 
     @IterableMapping(qualifiedByName = "vendedorToVendedorDto")

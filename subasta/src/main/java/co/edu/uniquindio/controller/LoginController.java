@@ -4,7 +4,7 @@ import co.edu.uniquindio.enums.TipoUsuario;
 
 public class LoginController
 {
-    ModelFactoryController modelFactoryController = new ModelFactoryController();
+    ModelFactoryController modelFactoryController;
 
     public LoginController()
     {
